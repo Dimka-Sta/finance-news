@@ -1,0 +1,131 @@
+.app-content{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    background-color: #839695;
+    font-family: 'Roboto Slab', serif;
+
+}
+.card {
+    width: 450px;
+
+    margin: 10px 20px 20px;
+    background-color: #112B3E;
+    color: #FFFFFF;
+    text-align: center;
+
+    a { text-decoration: none;}
+
+}
+
+.card:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: transform 0.6s;
+}
+
+.card-title-title {
+    font-size: 24px;
+}
+
+.card-text-body{
+    font-size: 14px;
+}
+
+.header {
+    padding: 8px;
+    background-color: #112B3E;
+    font-family: 'Roboto Slab', serif;
+
+    a { text-decoration: none;}
+}
+
+.header-text {
+    color: #FFFFFF ;
+    text-decoration: none;
+}
+
+.header-text-first {
+    font-size: 36px;
+}
+
+.header-text-second {
+    font-size: 24px;
+}
+
+.wrap-art{
+    background-color:  #839695 ;
+    text-align:center;
+    background-size: 100%;
+    font-weight: bold;
+    padding-bottom: 50px;
+    font-family: 'Roboto Slab', serif;
+}
+
+.wrap-art h1 {
+    color: white;
+    font-size: 36px;
+    padding-top: 50px;
+    width: 1192px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: start;
+    font-weight: bold;
+    a { text-decoration: none;}
+}
+
+.wrap-art img {
+    height: 448px;
+    width: 1192px;
+}
+
+.body {
+    padding-top: 25px;
+    color: black;
+    width: 1192px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: start;
+    font-size: 17px;
+    
+}
+
+.wrap-art span {
+    background-color: white;
+}
+
+.card-title-title {
+    color: #FFFFFF ;
+}
+
+.card-text-body {
+    color: #FFFFFF
+}
+
+.exp-comment {
+    background-color: #FFFFFF;
+    width: 1192px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+    text-align: start;
+
+}
+
+.comment {
+    margin-left:  20px;
+    font-size: 25px;
+    padding-top: 15px;
+    
+
+}
+
+.comment-body{
+    margin-left: 20px;
+    font-size: 14px;
+    padding: 10px 0 30px 0;
+    
+}

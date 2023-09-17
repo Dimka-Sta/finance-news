@@ -14,11 +14,16 @@ const Index = () => {
             .then((json) => setPosts(json))
     }, []);
 
+    const newPosts = posts.map((post, index) => ({
+        ...post,
+        id: index + 1
+    }));
+
 
     return (
         <div className='app-content'>
 
-            {posts.map(({ title, body, id, imageUrl }) => {
+            {newPosts.map(({ title, body, id, imageUrl }) => {
                 return <Card title={title} body={body} key={id} id={id} imageUrl={imageUrl} />
             })}
 

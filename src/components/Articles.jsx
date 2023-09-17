@@ -1,49 +1,50 @@
-//import { useParams } from "react-router-dom"
-import { useEffect, useId, useState } from "react"
+import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
 import axios from 'axios'
-import { useLocation } from "react-router";
 
 
 const Articles = () => {
 
-    const [post, setPost] = useState({});
+    const [posts, setPosts] = useState([]);
 
-    const id = useId();
-
-    console.log(id, '12324')
-    
-    const location = useLocation();
-
-    //const { title } = useParams();
+    const { id } = useParams();
 
     useEffect(() => {
         axios
-        .get(`https://svproduction.github.io/financial-market-news-blog-project.json/${id}`)
-        .then(({ data} ) => {
-            setPost(data);
-        });
+            .get(`https://svproduction.github.io/financial-market-news-blog-project.json`)
+            .then((response) => {
+                const newPosts = response.data.map((item, index) => ({
+                    ...item,
+                    id: index + 1
+                }));
+                setPosts(newPosts);
+            });
     }, []);
-
-    //const { title , body } = post  //добавить здесь
 
     return (
 
-        
-
         <div className="wrap-art">
-            {location.pathname}
+            {
+                posts.filter(post => post.id == id).map(post => {
+                    return (
+                        <>
+                            <h1>{post.title}</h1>
+                            <img src={post.imageUrl} alt="Card cap" />
+                            <p className="body">{post.description}</p>
 
-            <h1>{post.title}</h1>
-            <img src='https://images.barrons.com/im-298585' alt="Card cap" />
-            <p className="body">{post.body}</p>
+                            <div className="exp-comment">
+                                <p className="comment">Experts Comment</p>
+                                <p className="comment-body"> {post.expertComment}
+                                </p>
+                            </div>
+                        </>
+                    )
+                })
+            }
 
-            <div className="exp-comment">
-                <p className="comment">Experts Comment</p>
-                <p className="comment-body"> {post.body}
-                </p>
-            </div>
 
-            </div>
+
+        </div>
     )
 }
 

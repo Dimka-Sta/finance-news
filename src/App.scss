@@ -88,7 +88,8 @@
     margin-left: auto;
     margin-right: auto;
     text-align: start;
-    font-size: 17px;
+    font-size: 17px;  
+    white-space: pre-wrap;
     
 }
 
@@ -116,7 +117,7 @@
 }
 
 .comment {
-    margin-left:  20px;
+    margin-left:  30px;
     font-size: 25px;
     padding-top: 15px;
     
@@ -126,6 +127,6 @@
 .comment-body{
     margin-left: 20px;
     font-size: 14px;
-    padding: 10px 0 30px 0;
+    padding: 0 0 35px 10px;
     
 }

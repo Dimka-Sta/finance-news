@@ -1,10 +1,9 @@
 import { useEffect, useState } from 'react';
 import Card from './Card';
 
-
 const Index = () => {
 
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([]);
 
     useEffect(() => {
         fetch('https://svproduction.github.io/financial-market-news-blog-project.json')
@@ -22,7 +21,7 @@ const Index = () => {
 
     return (
         <div className='app-content'>
-
+            
             {newPosts.map(({ title, body, id, imageUrl }) => {
                 return <Card title={title} body={body} key={id} id={id} imageUrl={imageUrl} />
             })}

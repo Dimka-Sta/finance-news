@@ -8,10 +8,6 @@ import Articles from './components/Articles';
 
 function App() {
 
-  
-
-
-
   return (
 
         <Routes>

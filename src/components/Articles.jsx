@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
-import axios from 'axios'
+import {ref, onValue} from "firebase/database"
+import {db} from '../firebase'
 
 
 const Articles = () => {
@@ -10,15 +11,15 @@ const Articles = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios
-            .get(`https://svproduction.github.io/financial-market-news-blog-project.json`)
-            .then((response) => {
-                const newPosts = response.data.map((item, index) => ({
-                    ...item,
-                    id: index + 1
+        const starCountRef = ref(db);
+        onValue(starCountRef, (snapshot) => {
+            const data = snapshot.val();
+            const newPosts = data.map((item, index) => ({
+                ...item,
+                id: index + 1
                 }));
-                setPosts(newPosts);
-            });
+            return setPosts(newPosts);
+        })
     }, []);
 
     return (

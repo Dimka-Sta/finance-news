@@ -1,26 +1,21 @@
 import { useEffect, useState } from 'react';
 import Card from './Card';
 import { db } from '../../firebase';
-import axios from 'axios';
+import {ref, onValue} from 'firebase/database'
+
 
 const Index = () => {
-
-
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        fetch('https://svproduction.github.io/financial-market-news-blog-project.json')
-            .then((resp) => {
-                return resp.json();
-            })
-            .then((json) => setPosts(json))
+        const starCountRef = ref(db);
+        onValue(starCountRef, (snapshot) => {
+            const data = snapshot.val();
+            return setPosts(data);
+        })
     }, []);
 
-    useEffect(() => {
-        axios.get('https://financial-news-ecaa8-default-rtdb.europe-west1.firebasedatabase.app/')
-            .then((resp) => console.log(resp, 'ewretbr'))
-    }, [])
 
     const newPosts = posts.map((post, index) => ({
         ...post,
